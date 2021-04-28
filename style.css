@@ -2,114 +2,147 @@ html,body{
     margin: 0;
     padding: 0;
 
-    font-family: 'Montserrat', sans-serif;
-    
-    
+    width: 100%;
+    height: 100vh;
+
+    background-color: rgb(25, 26, 26);
 }
 
 header{
     width: 100%;
-    height: 70px;
-    padding: 3px 0;
+
+    background-color: black;
+
+    padding:10px 20px;
 
     position: fixed;
     top: 0;
     z-index: 999;
-
-    background-color:#fff;
-    margin-left: 0;
-    border: 1px solid rgb(46 49 51 / 17%);
-    border-radius: .28571429rem;
-    box-shadow: 0 1px 2px 0 rgb(34 36 38 / 15%);
 }
-figcaption{
-    display: none;
-}
-.logowii{
-    width: 45px;
-}
-
 .navbar{
+    max-width: 1200px;
+    padding: 0 30px;
+    margin: 0 auto;
+
     display: flex;
     align-items: center;
-    justify-content:left
+    justify-content: space-between;
+}
+.logo{
+    width: 50px;
+    height: 50px;
+    background-color: #555;
+    border-radius: 10px;
+    text-align: center; 
+      
+}
+.distant{
+    color: #fff;
+    text-decoration: none;
     
 }
-.titulo{
-    margin-left: -25px;
-    margin-top: -10px;
-}
-h1.hfsize{
-    font-size: 1.2em;
 
-}
+.hamburguer{
+    width: 30px;
+    height: 30px;
 
-.containertwo{
-    width: 100%;
-    
-    padding-top: 200px;
+    border-radius: 5px;
+    position: relative;
 
-}
-.navbartwo{
-    display: inline-block;
-    text-align: center;
-}
-.complitfrase{
-    margin-left: 50px;
-    margin-right: 50px;
-
-    padding: 10px 0;
+    display: none;
     
 }
-.intruhf{
-    padding: 0 0 5px;
-    margin-left: 10px;
-    margin-right: 10px;
+.hamburguer::after{
+    content: '';
+    position: absolute;
+    top: 30%;
+    left: 5%;
+
+    width: 90%;
+    height: 4px;
+    border-radius: 20px;
+
+    background-color: #fff;
+
+    transition: 1s ease;
+}
+.hamburguer::before{
+    content: '';
+    position: absolute;
+    top: 60%;
+    left: 35%;
+
+    width: 60%;
+    height: 4px;
+    border-radius: 20px;
+
+    background-color: #fff;
+
+    transition: 1s ease;
 }
 
-.containerfagame{
-    padding-top: 10%;
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    color: #2185d0;
+#hamburguer:checked ~ label .hamburguer::after{
+    transform: rotate(225deg);
+    top: 45%;
+    left: 5%;
+}
+#hamburguer:checked ~ label .hamburguer::before{
+
+    width: 90%;
+    height: 4px;
+    
+    transform: rotate(-225deg);
+    top: 45%;
+    left: 5%;
 }
 
-
-.containerthree{
-    width: 100%;
+.menu{
+    list-style: none;
     display: flex;
-    text-align: center;
-    margin-left: 8%;
-    margin-right: 8%;
+    align-items: center;
+}
+li{
+    margin-left: 10px;
+}
+.stylemenu{
+    text-decoration: none;
+    display: block;
+    padding: 10px 10px;
+    color: #555;
     
 }
-.textjogos1{
-    padding-top: 20px;
-    
-}
-.textjogos2{
-    padding-top: 20px;
-    margin-left: 17%;
-    margin-right: 17%;
+.stylemenu:hover{
+    color: #fff;
+    transition: 0.5s ease;
 }
 
-@media screen and (max-width:1125px){
-    .eijoe{
+
+@media screen and (max-width: 980px){
+    .hamburguer{
+        display: block;
+        z-index: 999;
+        margin-right: 20px;
+    }
+    .menu{
+        position: fixed;
+        top: 0;
+        right: -100%;
+
+        height: 100vh;
+        margin: 0;
+        background-color: rgb(39, 38, 38);
+
+        flex-direction: column;
+
+        padding: 100px 20px;
+
         width: 100%;
-    }
-    .containerthree{
-        display: inline-block;
-        margin-left: 0;
-        margin-right: 0;
-    }
-    .jogosmini{
-        width: 55%;
-        height: 55%;
-    }
-    .textjogos1{
-        margin-left: 17%;
-        margin-right: 17%;
-    }
+        max-width: 200px;
 
+        transition: 0.5s ease;
+
+    }
+    .menu.active{
+        right: 0;
+    }
 }
